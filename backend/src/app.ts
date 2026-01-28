@@ -67,7 +67,7 @@ app.use('/order', orderRoutes);
 app.use(errors());
 
 app.use('*', (_req, _res, next) => {
-  next(new NotFoundError('Маршрут не найден'));
+  next(new NotFoundError('Запрашиваемый ресурс не найден'));
 });
 
 app.use(errorLogger);
