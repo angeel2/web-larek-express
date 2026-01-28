@@ -3,7 +3,6 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import path from 'path';
 import fs from 'fs';
-import { errors } from 'celebrate';
 
 import config from './config';
 
@@ -63,8 +62,6 @@ app.get('/health', (_req, res) => {
 
 app.use('/product', productRoutes);
 app.use('/order', orderRoutes);
-
-app.use(errors());
 
 app.use('*', (_req, _res, next) => {
   next(new NotFoundError('Запрашиваемый ресурс не найден'));
